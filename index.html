@@ -234,18 +234,21 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Example of Reasoning Chain</h2>
+        <h2 class="title is-3">Examples of Reasoning Chain</h2>
     
         <div class="content has-text-justified">
-            <img src="./static/images/teaser_v3_crop.jpg" 
-                 alt="Reasoning chain visualization of SceneCOT" 
-                 style="display: block; margin: 0 auto 2rem auto; width: 80%; height: auto;">
-            <p>
-              <strong>Reasoning chain visualization of SceneCOT.</strong> The reasoning chain mimics humans' recognition process: from high-level task recognition to low-level visual semantic understanding.
-            </p>
+          <video controls autoplay muted loop 
+             style="display: block; margin: 0 auto 2rem auto; width: 80%; height: 400px; object-fit: cover; object-position: center;">
+        <source src="assets/videos/SceneCOT_Video_Demo.mp4" type="video/mp4">
+        Examples of reasoning chain.
+      </video>
+          <p>
+            <strong>Reasoning chain visualization of SceneCOT.</strong> The reasoning chain mimics humans' recognition process: from high-level task recognition to low-level visual semantic understanding.
+          </p>
         </div>
       </div>
-    </div>    
+    </div>
+    
 
     
     <div class="columns is-centered">
@@ -257,9 +260,9 @@
            alt="Detailed overview of benchmarking tasks" 
            style="display: block; margin: 0 auto 2rem auto; width: 80%; height: auto;">
           <p>
-            <strong>SceneCOT framework.</strong> Our framework enables interpretable step-by-step reasoning in 3D scenes through a Chain-of-Thought (CoT) process. The reasoning unfolds in four key stages:
+            <strong>SceneCOT framework.</strong> Our framework enables interpretable step-by-step reasoning in 3D scenes through a Chain-of-Thought (CoT) process.
           </p>
-          <ol>
+          <!-- <ol>
             <li>
               <strong>Task Recognition:</strong> We identify the task type (e.g., attribute) and provide an initial plan using a <code>&lt;think_type&gt;</code> token.
             </li>
@@ -280,39 +283,81 @@
           </ol>
           <p>
             The reasoning ends with a summarization step (<code>&lt;thin_sum&gt;</code>) followed by the final answer (<code>&lt;answer&gt;</code>).
+          </p> -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">SceneCOT-212K</h2>
+    
+        <div class="content has-text-justified">
+          <div class="columns is-variable is-6 is-vcentered">
+            <!-- Left image: Navigation example -->
+            <div class="column is-8">
+              <div class="is-flex is-flex-direction-column is-align-items-center">
+                <figure class="image">
+                  <img src="./static/images/scenecot_data_pipeline_navigation.jpg" 
+                       alt="Example of navigation reasoning chain"
+                       style="width: 100%; height: auto; object-fit: contain;">
+                </figure>
+                <p class="has-text-centered mt-2"><i>Illustration of data generation (navigation example)</i></p>
+              </div>
+            </div>
+    
+            <!-- Right image: Data distribution -->
+            <div class="column is-4">
+              <div class="is-flex is-flex-direction-column is-align-items-center">
+                <figure class="image">
+                  <img src="./static/images/SceneCOT-212K (cropped).jpg" 
+                       alt="Data distribution visualization"
+                       style="width: 100%; height: auto; object-fit: contain;">
+                </figure>
+                <p class="has-text-centered mt-2"><i>Data distribution of SceneCOT-212K</i></p>
+              </div>
+            </div>
+          </div>
+    
+          <p>
+            We illustrate the data generation process (using <i>navigation</i> as an example) on the left, which reflects the typical reasoning chains used in MSQA and SQA3D. To unlock reasoning capabilities in Beacon3D, we introduce a new training dataset, GQA3D. The corresponding data distribution is shown on the right.
+          </p>
+        </div>
+      </div>
+    </div> 
+    
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Main Results</h2>
+    
+        <div class="content has-text-justified">
+          <img src="./static/images/main_results.png" 
+           alt="Detailed overview of benchmarking tasks" 
+           style="display: block; margin: 0 auto 2rem auto; width: 85%; height: auto;">
+          <p>
+            SceneCOT achieves great performance on SQA3D, MSQA, and Beacon3D benchmarks, demonstrating the effectiveness of our reasoning framework. Especially, our method significanlty enhances the performance on <i>counting</i>, the most challenging task in MSQA. Our method also significanlty outperforms previous methods by a large margin in Beacon3D.
           </p>
 
         </div>
       </div>
     </div>
-    
 
-    <!-- Concurrent Work. -->
-    <!-- <div class="columns is-centered">
+    <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
+        <h2 class="title is-3">Qualitative Results</h2>
+    
         <div class="content has-text-justified">
+          <img src="./static/images/visualization_crop.jpg" 
+           alt="Detailed overview of benchmarking tasks" 
+           style="display: block; margin: 0 auto 2rem auto; width: 85%; height: auto;">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            We provide the illustration of the predicted reasoning chains with the ground-truth annotations. In the first examples, we clearly show the reasoning chains of SceneCOT, which are semanticly consistent with the ground-truth annotations even with some noise. The reasoning chains are interpretable and can be used to explain the final answers.
           </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+
         </div>
       </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
+    </div>
 
   </div>
 </section>
